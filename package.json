@@ -1,0 +1,35 @@
+{
+  "name": "quitbuddy-desktop",
+  "version": "1.0.0",
+  "description": "QuitBuddy Desktop - builds Windows installer via GitHub Actions",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis --x64"
+  },
+  "build": {
+    "appId": "com.quitbuddy.desktop",
+    "productName": "QuitBuddyPro",
+    "directories": {
+      "buildResources": "build"
+    },
+    "files": [
+      "app/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "publisherName": "QuitBuddy"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^25.0.0",
+    "electron-builder": "^24.0.0"
+  }
+}
